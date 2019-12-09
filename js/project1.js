@@ -81,39 +81,7 @@ var chooseRecipe = (myRecipe) => {
     switch(onlyNumber) {
         case 2:
             getAPI(url);
-            //hideAlert();
             break;
-        // case 1:
-        //     // your code idea...
-        //     demoOne();
-        //     break;
-        // case 2:
-        //     // your code idea...
-        //     demoTwo();
-        //     break;
         default: console.warn("You choose nothing");
     }
 } 
-
-// Demo test click [arrow function] this just the option function I test only
-// var demoOne = () => {
-//     var show = "";
-//     show += `
-//         <div class="alert alert-success">
-//             <strong>Good luck! </strong> try your best!
-//         </div>
-//     `;
-//     $('#result').html(show);
-// }
-// var demoTwo = () => {
-//     var show = "";
-//     show += `
-//         <div class="alert alert-warning">
-//             <strong>Good luck! </strong> try your best!
-//         </div>
-//     `;
-//     $('#result').html(show);
-// }
-// var hideAlert = () => {
-//     $('.alert').hide();
-// }
