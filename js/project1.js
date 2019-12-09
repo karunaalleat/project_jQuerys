@@ -26,7 +26,7 @@ function getRecipes(datas) {
          <tr>
            <td><h2>${recs.name}</h2></td>
            <td><img src="${recs.iconUrl}" width="70%" class="img-fluid"></td>
-           
+           <br>
            <td>
            <h2> <p>Number of persons</p> </h2>
            <div class="input-group mb-3" style="width:30% ">
