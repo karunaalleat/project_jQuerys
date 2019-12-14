@@ -1,87 +1,90 @@
-var url = "https://raw.githubusercontent.com/radytrainer/test-api/master/test.json";
-$(document).ready( () => {
-    $('#choose_me_baby').on('change', () => {
-        var recipes = $('#choose_me_baby').val();
-        chooseRecipe(recipes);
-    } );
+function getUrl(){
+    var url = "https://raw.githubusercontent.com/radytrainer/test-api/master/test.json";
+    return url;
+}
+$(document).ready(function(){
+      getApi();
+      $('#recipies').on('change',function(){
+          var recipes = $('#recipies').val();
+          eachrecipies(recipes);
+      })
 });
-
-// get api [arrow function]
-var getAPI = (api) => {
+function getApi(){
     $.ajax({
-        dataType: 'json',
-        url: api,
-        success: (data) => getRecipes(data),
-        error: () => console.error("Cannot request data")
+        dataType:'json',
+        url: getUrl(),
+        success: (data) => chooserecipies(data.recipes),
+        error: () => console.log("can not get recipies"),
     });
 }
+var allData = [];
+function chooserecipies(recipes ){
+    allData = recipes;
+    var option = "";
+    recipes.forEach(item =>{
+     option += `
+     <option value="${item.id}">${item.name}</option>
+     `;
+ });
+ $('#recipies').append(option);
+}
+$('#dobplacate').hide();
+$('#hide').hide();
+$('#hid').hide();
+function eachrecipies(id){
+    allData.forEach(recipes =>{
+        if(recipes.id == id){
+           //show reciies
+           showrecipies(recipes.name, recipes.iconUrl);
+           //show ingreadian
+            showingreadian(recipes.ingredients);
+            // show intruction
+            showintruction(recipes.instructions);
 
-// get all recipe [name function]
-function getRecipes(datas) {
-    datas.recipes.forEach( recs => {
-       // your recipe can get here example: recs.name
-       var results = "";
-       if(recs.id == 0){
-        results += `
-         <tr>
-           <td><h2>${recs.name}</h2></td>
-           <td><img src="${recs.iconUrl}" width="70%" class="img-fluid"></td>
-           <br>
-           <td>
-           <h2> <p>Number of persons</p> </h2>
-           <div class="input-group mb-3" style="width:30% ">
-            <div class="input-group-prepend">
-                <button type="button" id="minus" >&minus;</button>
-            </div>
-            <input type="number" class="form-control text-center" value="0" disabled id="member" max="15"
-                min="0">
-            <div class="input-group-append">
-                <button type="button" id="add" >&#x2b;</button>
-            </div>
-           </div>
-           </td>
-           </tr>
-         `;
-       }
-       
-        getIngrediant(recs); // get all ingrediant
-        $('#recipies').append(results);
-        var h = "";
-        if(ingrediant == 2){
-            h -= 1;
+
         }
-        $('#recipies').append(h);
+    });
+    $('#dobplacate').show();
+    $('#hide').show();
+    $('#hid').show();
+}
+function showrecipies(name, img,){
+var result = "";
+result +=`
+    <img src="${img}" width = "40%" class="float-right">
+    <h3>${name}</h3><br><br><br>
+  
+`;
+$('#recipis-result').html(result);
+}
+
+function showingreadian(ing){
+    var ingreadian = "";
+    ing.forEach(element =>{
+            ingreadian += `
+              <tr>
+              <td><img src= "${element.iconUrl}" width="40%"></td>
+                <td>${element.quantity}</td>
+                <td>${element.unit[0]}</td>
+                <td>${element.name}</td>
+                
+              </tr>
+            `;
+            $('#table').html(ingreadian); 
     });
 }
+function showintruction(int){
+    var instruction = "";
+    var step = int.split("<step>");
+     for(let i= 1; i<step.length; i++){
+        instruction +=`
+         <p class="text-primary"> step ${i} : </p>
+         <p>${step[i]}</p>
+        `;
 
-// get all ingrediant [name function]
-function getIngrediant(recipe) {
-    recipe.ingredients.forEach(ing => {
-        showIngrediantTable(ing);
-    })
+     }
+     $('#intructions').html(instruction);
 }
 
-// display ingrediant in table [arrow function]
-var showIngrediantTable = (show) => {
-    var ingrediant = "";
-    ingrediant += `
-        <tr>
-            <td><img src="${show.iconUrl}" width="25" class="img-fluid"></td>
-            <td>${show.quantity}</td>
-            <td>${show.unit[0]}</td>
-            <td>${show.name}</td>
-        </tr>
-    `;
-    $('#result').append(ingrediant);
-}
 
-// choose recipe from select [arrow function]
-var chooseRecipe = (myRecipe) => {
-    var onlyNumber = parseInt(myRecipe);
-    switch(onlyNumber) {
-        case 2:
-            getAPI(url);
-            break;
-        default: console.warn("You choose nothing");
-    }
-} 
+
