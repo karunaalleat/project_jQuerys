@@ -8,50 +8,60 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>Document</title>
 </head>
+<style>
+    .ruler{
+     border-left: 2px solid blue;
+     height: 50%;
+     position: absolute;
+     left: 50%;
+    }
+</style>
 <body>
     <div class="container mt-5">
         <div class="row">
             <div class="col-4"></div>
             <div class="col-4">
                 <select class="form-control" id="recipies">
-                    <option value="" disabled selected> < selects a recipt></option>
+                    <option value="" disabled selected>
+                        < selects a recipt>
+                    </option>
                 </select><br>
-                <div id="recipis-result"></div><br></div>
-            <div class="col-4"></div>
-        </div>
-    </div>
-    <div class="container charset='utf-8'">
-        <div class="row">
-            <div class="col-6 hide" id="recipis-result"> </div>
-            <div class="col-6" id="dobplacate">
-                    <h1>Number of recipt</h1>
-                    <div class="input-group mb-3" style="width:70% ">
-                     <div class="input-group-prepend">
-                         <button type="button" id="minus" >&minus;</button>
-                     </div>
-                     <input type="number" class="form-control text-center" value="0" disabled id="member" max="15"
-                         min="0">
-                     <div class="input-group-append" >
-                         <button type="button" id="add" >&#x2b;</button>
-                     </div>
-            </div>
-                
-     
-            </div>
-            <div class="col-4" ></div>
-        </div>
-    </div>
-    <div class="container">
-            <h4 id="hide" style="margin-left: 150px">Ingredients</h4>
-            <h4 id="hid" class="text-right">Intructions</h4>
-        <div class="row">
-            <div class="col-4"><table id="table" class="table table-borderless" ></table></div>
-            <div class="col-4"></div>
-            <div class="col-4" id="intructions"></div>
-        </div>
-    </div>
+                <div id="recipis-result"></div><br><br>
+                <h3 id="number">Number of recipies</h3>
+                <div class="input-group mb-3" id="dobplacate" style="width:70% ">
+                    <div class="input-group-prepend">
+                        <button type="button" id="minus">&minus;</button>
+                    </div>
+                    <input type="number" class="form-control text-center" value="0" disabled id="member" max="15"
+                        min="0">
+                    <div class="input-group-append">
+                        <button type="button" id="add">&#x2b;</button>
+                    </div>
+                </div>
 
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/project1.js"></script>
+                <div class="col-4"></div>
+            </div>
+        </div>
+        <div class=" text-center ruler" id="rotler"></div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <h4 id="Ingredients" class="text-center">Ingredients</h4>
+                    <table id="table" class="table table-borderless">
+
+                    </table>
+                </div>
+                <div class="col-6">
+                    <h4 id="instruction" class="text-center">Ingredients</h4>
+                    <div id="intructions"></div>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <script src="js/project1.js"></script>
+        <script src="css/style.css"></script>
 </body>
 </html>

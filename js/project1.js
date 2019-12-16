@@ -28,9 +28,11 @@ function chooserecipies(recipes ){
  });
  $('#recipies').append(option);
 }
-$('#dobplacate').hide();
-$('#hide').hide();
-$('#hid').hide();
+ $('#dobplacate').hide();
+ $('#Ingredients').hide();
+ $('#instruction').hide();
+ $('#rotler').hide();
+ $('#number').hide();
 function eachrecipies(id){
     allData.forEach(recipes =>{
         if(recipes.id == id){
@@ -45,14 +47,16 @@ function eachrecipies(id){
         }
     });
     $('#dobplacate').show();
-    $('#hide').show();
-    $('#hid').show();
+     $('#Ingredients').show();
+     $('#instruction').show();
+     $('#rotler').show();
+     $('#number').show();
 }
 function showrecipies(name, img,){
 var result = "";
 result +=`
-    <img src="${img}" width = "40%" class="float-right">
-    <h3>${name}</h3><br><br><br>
+    <img src="${img}" width = "50%" class="float-right img-fluid">
+    <h3>${name}</h3><br>
   
 `;
 $('#recipis-result').html(result);
@@ -63,7 +67,7 @@ function showingreadian(ing){
     ing.forEach(element =>{
             ingreadian += `
               <tr>
-              <td><img src= "${element.iconUrl}" width="40%"></td>
+              <td><img src= "${element.iconUrl}" width="20%"></td>
                 <td>${element.quantity}</td>
                 <td>${element.unit[0]}</td>
                 <td>${element.name}</td>
@@ -73,6 +77,7 @@ function showingreadian(ing){
             $('#table').html(ingreadian); 
     });
 }
+
 function showintruction(int){
     var instruction = "";
     var step = int.split("<step>");
@@ -84,6 +89,7 @@ function showintruction(int){
 
      }
      $('#intructions').html(instruction);
+     
 }
 
 
