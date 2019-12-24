@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,26 +9,24 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>Document</title>
 </head>
-<style>
-    .ruler{
-     border-left: 2px solid blue;
-     height: 50%;
-     position: absolute;
-     left: 50%;
-    }
-</style>
-<body>
-    <div class="container mt-5">
+
+<body  background="image/1.webp " style="background-size: cover">
+
+    <div class="conatainer-fluid mt-5">
         <div class="row">
             <div class="col-4"></div>
             <div class="col-4">
+                <!-- selection all recipies -->
                 <select class="form-control" id="recipies">
                     <option value="" disabled selected>
                         < selects a recipt>
                     </option>
                 </select><br>
+                <!-- Get recipies -->
                 <div id="recipis-result"></div><br><br>
-                <h3 id="number">Number of recipies</h3>
+                <!-- header of number -->
+                <div id="rep"></div>
+                <!-- calculate  -->
                 <div class="input-group mb-3" id="dobplacate" style="width:70% ">
                     <div class="input-group-prepend">
                         <button type="button" id="minus">&minus;</button>
@@ -38,24 +37,30 @@
                         <button type="button" id="add">&#x2b;</button>
                     </div>
                 </div>
-
                 <div class="col-4"></div>
             </div>
         </div>
-        <div class=" text-center ruler" id="rotler"></div>
-
         <div class="container">
             <div class="row">
                 <div class="col-6">
-                    <h4 id="Ingredients" class="text-center">Ingredients</h4>
-                    <table id="table" class="table table-borderless">
-
-                    </table>
+                    <!-- Header of ingreadian -->
+                    <div id="in"></div>
+                    <!-- Show ingreadian in table -->
+                    <div class="card" id="cards">
+                        <div class="card-body">
+                            <table id="table" class="table table-bordered"></table>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-6">
-                    <h4 id="instruction" class="text-center">Ingredients</h4>
-                    <div id="intructions"></div>
-                    </table>
+                    <!-- Header of step instruction -->
+                    <div id="ist"></div>
+                    <!-- Show instruction -->
+                    <div class="card " id="intss">
+                        <div class="card-body " style="border:3px solid pink">
+                            <div id="intructions"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -64,4 +69,5 @@
         <script src="js/project1.js"></script>
         <script src="css/style.css"></script>
 </body>
+
 </html>
