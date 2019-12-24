@@ -86,7 +86,7 @@ function showrecipies(name, img, ) {
 function showingreadian(ing) {
     var ingreadian = "";
     var headeringreadian = `
-    <h2 class="text-center text-light">Ingredients</h2>
+    <h2 class="text-center text-danger">Ingredients</h2>
     `;
     $('#in').html(headeringreadian);
     ing.forEach(element => {
@@ -123,7 +123,7 @@ function min(number) {
 function showintruction(int) {
     var instruction = "";
     var headerInstruction = `
-    <h2 class="text-center text-light">Instruction</h2>
+    <h2 class="text-center text-danger">Instruction</h2>
     `;
     $('#ist').html(headerInstruction);
     var step = int.split("<step>");
